@@ -1,7 +1,13 @@
 const pg = require('pg');
 
-module.exports = function(dbUrl) {
-    dbUrl = require('url').parse(dbUrl);
+const dbs = {};
+
+module.exports = function(url) {
+    if (dbs[url]) {
+        return dbs[url];
+    }
+
+    const dbUrl = require('url').parse(url);
 
     const dbUser = dbUrl.auth.split(':');
 
@@ -21,7 +27,7 @@ module.exports = function(dbUrl) {
         console.log(err);
     });
 
-    return {
+    return dbs[url] = {
         query: query
     };
 
