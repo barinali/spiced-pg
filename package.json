@@ -1,6 +1,6 @@
 {
   "name": "spiced-pg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/spicedacademy/spiced-pg#readme",
   "dependencies": {
-    "pg": "^6.1.0"
+    "pg": "^8.0.3"
   }
 }
