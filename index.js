@@ -18,7 +18,10 @@ module.exports = function(url) {
         host: dbUrl.hostname,
         port: 5432,
         max: 10,
-        idleTimeoutMillis: 30000
+        idleTimeoutMillis: 30000,
+        ssl: {
+            rejectUnauthorized: false
+        }
     };
 
     const pool = new pg.Pool(dbConfig);
