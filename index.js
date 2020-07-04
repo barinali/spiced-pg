@@ -19,7 +19,7 @@ module.exports = function(url) {
         port: 5432,
         max: 10,
         idleTimeoutMillis: 30000,
-        ssl: {
+        ssl: dbUrl.hostname != 'localhost' && dbUrl.hostname != '127.0.0.1' && {
             rejectUnauthorized: false
         }
     };
