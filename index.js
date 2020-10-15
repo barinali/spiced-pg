@@ -8,6 +8,7 @@ module.exports = function(url) {
     }
 
     const dbUrl = require('url').parse(url);
+    const port = dbUrl.port || 5432;
 
     const dbUser = dbUrl.auth.split(':');
 
@@ -16,7 +17,7 @@ module.exports = function(url) {
         database: dbUrl.pathname.slice(1),
         password: dbUser[1],
         host: dbUrl.hostname,
-        port: 5432,
+        port: port,
         max: 10,
         idleTimeoutMillis: 30000,
         ssl: dbUrl.hostname != 'localhost' && dbUrl.hostname != '127.0.0.1' && {
